@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman Kelulusan 2025/2026 - SMP SWASTA TEKNOLOGI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons for Beautiful Visuals -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti for Celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        leaf: {
+                            50: '#f2fcf3',
+                            100: '#e2f7e5',
+                            200: '#c7edd0',
+                            300: '#9cdcab',
+                            400: '#6ac17e',
+                            500: '#43a45a',
+                            600: '#328647',
+                            700: '#286b3a',
+                            800: '#235531',
+                            900: '#1d462a',
+                            950: '#0d2716',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #1d462a; /* Leaf green dark base */
+            background-image: radial-gradient(circle at 10% 20%, rgba(43, 115, 68, 0.4) 0%, transparent 45%),
+                              radial-gradient(circle at 90% 80%, rgba(20, 80, 40, 0.6) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .glass-panel-light {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        /* Hide element on print, make certificate beautiful */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-card {
+                border: 2px solid #286b3a !important;
+                box-shadow: none !important;
+                background: white !important;
+                color: black !important;
+                margin: 0 !important;
+                padding: 20px !important;
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-100 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- MAIN WRAPPER -->
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-6 md:p-8">
+        <div class="w-full max-w-4xl mx-auto">
+            
+            <!-- ====== PAGE 1: LANDING & CHECK PAGE ====== -->
+            <div id="section-landing" class="space-y-8 block transition-all duration-500">
+                <!-- Header Branding -->
+                <div class="text-center space-y-4">
+                    <div class="inline-block relative">
+                        <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-400 to-green-600 blur opacity-40 animate-pulse"></div>
+                        <img id="school-logo" src="https://iili.io/BprJ3qx.png" alt="Logo SMP Swasta Teknologi" class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto object-contain drop-shadow-xl" onerror="this.onerror=null; this.src='https://placehold.co/150x150/286b3a/ffffff?text=SMP+TEKNOLOGI'">
+                    </div>
+                    <div class="space-y-1">
+                        <span class="inline-block text-[11px] font-bold tracking-widest text-yellow-400 uppercase px-3 py-1 bg-leaf-950/40 rounded-full border border-yellow-500/20">Pengumuman Resmi Online</span>
+                        <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight drop-shadow-sm uppercase">SMP SWASTA TEKNOLOGI</h1>
+                        <p class="text-sm sm:text-base text-leaf-100 font-medium">Tahun Pelajaran 2025/2026</p>
+                    </div>
+                </div>
+
+                <!-- COUNTDOWN COMPONENT -->
+                <div id="countdown-card" class="glass-panel rounded-2xl p-6 shadow-xl text-center space-y-4">
+                    <div class="flex items-center justify-center gap-2 text-yellow-400 font-semibold text-sm">
+                        <i class="fa-regular fa-clock animate-pulse"></i>
+                        <span>PENGUMUMAN DIMULAI PADA:</span>
+                    </div>
+                    <p class="text-sm sm:text-base font-bold text-white tracking-wide bg-leaf-900/40 py-2 px-4 rounded-xl inline-block border border-leaf-700/30">
+                        2 Juni 2026 pukul 11:00 WITA
+                    </p>
+                    
+                    <!-- Countdown Display -->
+                    <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto pt-2">
+                        <div class="bg-white rounded-xl p-3 border border-red-200/60 shadow-lg">
+                            <span id="cd-days" class="block text-xl sm:text-3xl font-extrabold text-red-600">00</span>
+                            <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Hari</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-3 border border-red-200/60 shadow-lg">
+                            <span id="cd-hours" class="block text-xl sm:text-3xl font-extrabold text-red-600">00</span>
+                            <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Jam</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-3 border border-red-200/60 shadow-lg">
+                            <span id="cd-mins" class="block text-xl sm:text-3xl font-extrabold text-red-600">00</span>
+                            <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Menit</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-3 border border-red-200/60 shadow-lg">
+                            <span id="cd-secs" class="block text-xl sm:text-3xl font-extrabold text-red-600">00</span>
+                            <span class="text-[10px] text-red-500 font-bold uppercase tracking-wider">Detik</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHECK INPUT AREA (BAGIAN BAWAH) -->
+                <div class="glass-panel rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-emerald-500"></div>
+                    <div class="space-y-6">
+                        <div class="border-b border-leaf-700/40 pb-3 flex items-center gap-3">
+                            <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <div>
+                                <h3 class="font-bold text-lg text-white">Pencarian Status Kelulusan</h3>
+                                <p class="text-xs text-leaf-200">Masukkan kombinasi data diri resmi Anda di bawah ini.</p>
+                            </div>
+                        </div>
+
+                        <!-- CUSTOM NOTIFICATION ALERT CONTAINER (Hidden by default) -->
+                        <div id="custom-alert" class="hidden transition-all duration-300 flex items-start gap-3 p-4 bg-rose-500/20 border border-rose-500/30 text-rose-200 rounded-xl text-sm">
+                            <i class="fa-solid fa-triangle-exclamation mt-0.5 text-rose-400 text-lg"></i>
+                            <div class="flex-grow">
+                                <strong class="font-semibold block">Terjadi Kesalahan</strong>
+                                <span id="custom-alert-msg">Harap melengkapi semua isian form pencarian terlebih dahulu.</span>
+                            </div>
+                            <button onclick="hideAlert()" class="text-rose-400 hover:text-rose-200"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+
+                        <!-- Form -->
+                        <form id="check-form" onsubmit="handleSearch(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-1.5">
+                                    <label for="input-nisn" class="block text-xs font-semibold text-emerald-300 uppercase tracking-wider">Masukkan NISN Anda</label>
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-leaf-300/60"><i class="fa-solid fa-id-card"></i></span>
+                                        <input type="text" id="input-nisn" placeholder="Contoh: 0098765432" class="w-full bg-leaf-950/50 border border-leaf-700/40 rounded-xl py-3 pl-10 pr-4 text-white placeholder-leaf-300/30 focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-transparent transition duration-200">
+                                    </div>
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label for="input-dob" class="block text-xs font-semibold text-emerald-300 uppercase tracking-wider">Tanggal Lahir Anda</label>
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-leaf-300/60"><i class="fa-solid fa-calendar-days"></i></span>
+                                        <input type="date" id="input-dob" class="w-full bg-leaf-950/50 border border-leaf-700/40 rounded-xl py-3 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-transparent transition duration-200">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition duration-300 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-search"></i>
+                                <span>Periksa Status Kelulusan</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== PAGE 2: RESULT SCREEN (SUCCESS) ====== -->
+            <div id="section-success" class="hidden space-y-8 transition-all duration-500">
+                <button onclick="goToPage('landing')" class="no-print inline-flex items-center gap-2 text-emerald-300 hover:text-emerald-100 font-semibold text-sm transition">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+                </button>
+
+                <!-- Success Box Frame -->
+                <div class="bg-white text-slate-800 rounded-3xl shadow-2xl p-6 sm:p-10 relative overflow-hidden border-t-8 border-emerald-600 print-card">
+                    <!-- Background watermarks -->
+                    <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-emerald-50 opacity-10 rounded-full pointer-events-none"></div>
+
+                    <!-- School Header in Letter Document -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between border-b-2 border-double border-slate-300 pb-6 mb-6">
+                        <div class="flex items-center gap-4">
+                            <img src="https://iili.io/BprJ3qx.png" alt="Logo Sekolah" class="w-16 h-16 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/150x150/286b3a/ffffff?text=SMP+TEKNOLOGI'">
+                            <div>
+                                <h2 class="font-extrabold text-xl sm:text-2xl text-leaf-900 leading-tight">SMP SWASTA TEKNOLOGI</h2>
+                                <p class="text-xs text-slate-500 font-medium">Jl. Poros Wisata Meleura, Desa Lakarinta</p>
+                                <p class="text-[10px] text-slate-400">Telepon: 085394199403 | Website: smp-swasta-teknologi.sch.id</p>
+                            </div>
+                        </div>
+                        <div class="text-center sm:text-right mt-4 sm:mt-0">
+                            <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">TAHUN PELAJARAN 2025/2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Celebration Header -->
+                    <div class="text-center space-y-2 my-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 text-3xl mb-1 shadow-inner animate-bounce no-print">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-emerald-700 tracking-wide uppercase">SELAMAT!</h3>
+                        <p class="text-base sm:text-lg font-medium text-slate-700">Anda Dinyatakan <span class="bg-emerald-600 text-white font-bold px-3 py-1 rounded-md shadow-sm">LULUS</span> dari SMP Swasta Teknologi.</p>
+                    </div>
+
+                    <!-- Student Detail Table -->
+                    <div class="mt-6 space-y-4">
+                        <div class="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-200">
+                            <h4 class="font-bold text-sm text-slate-500 uppercase tracking-wider mb-3 pb-2 border-b border-slate-200"><i class="fa-solid fa-user-check mr-2 text-emerald-600"></i>Identitas Siswa</h4>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 text-sm">
+                                <div class="flex justify-between items-center py-1.5 border-b border-dashed border-slate-200">
+                                    <span class="text-slate-500 font-medium">NAMA LENGKAP</span>
+                                    <span id="res-nama" class="font-bold text-slate-800 uppercase">-</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1.5 border-b border-dashed border-slate-200">
+                                    <span class="text-slate-500 font-medium">NISN</span>
+                                    <span id="res-nisn" class="font-bold text-slate-800 tracking-wider">-</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1.5 border-b border-dashed border-slate-200">
+                                    <span class="text-slate-500 font-medium">NIS</span>
+                                    <span id="res-nis" class="font-semibold text-slate-800">-</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1.5 border-b border-dashed border-slate-200">
+                                    <span class="text-slate-500 font-medium">TANGGAL LAHIR</span>
+                                    <span id="res-dob" class="font-semibold text-slate-800">-</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1.5 border-b border-dashed border-slate-200">
+                                    <span class="text-slate-500 font-medium">JENIS KELAMIN</span>
+                                    <span id="res-gender" class="font-semibold text-slate-800">-</span>
+                                </div>
+                                <div class="flex justify-between items-center py-1.5 border-b border-dashed border-slate-200">
+                                    <span class="text-slate-500 font-medium">NAMA ORANG TUA</span>
+                                    <span id="res-parent" class="font-semibold text-slate-800">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status Alert Banner -->
+                        <div class="p-4 bg-emerald-50 border-l-4 border-emerald-600 rounded-r-xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600 text-xl"></i>
+                                <div>
+                                    <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider">STATUS AKHIR</span>
+                                    <span id="res-status" class="font-extrabold text-emerald-700 text-lg">-</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-award text-3xl text-emerald-600/30"></i>
+                        </div>
+
+                        <!-- Motivational Message -->
+                        <div class="bg-gradient-to-br from-emerald-950 to-leaf-900 text-white rounded-2xl p-5 sm:p-6 space-y-3 relative overflow-hidden shadow-inner mt-4 no-print">
+                            <div class="absolute right-0 top-0 translate-x-4 -translate-y-4 text-emerald-400/10 text-9xl font-serif pointer-events-none">“</div>
+                            <span class="inline-block text-[10px] font-bold text-emerald-300 uppercase tracking-widest bg-emerald-800/40 px-2.5 py-1 rounded-full border border-emerald-500/20"><i class="fa-solid fa-quote-left mr-1.5"></i>Pesan Guru Besar</span>
+                            <blockquote class="font-serif italic text-sm sm:text-base text-emerald-100 leading-relaxed relative z-10">
+                                "Lulus SMP bukanlah akhir, tapi gerbang menuju petualangan yang lebih seru. Ilmu yang kau bawa dari SMP akan jadi bekal penting untuk masa depanmu. Jangan berhenti di sini, kamu punya potensi besar untuk terus berkembang"
+                            </blockquote>
+                        </div>
+                    </div>
+
+                    <!-- Official Signature/Stamp (Simulated for high fidelity print) -->
+                    <div class="mt-8 flex flex-col sm:flex-row items-end justify-between text-xs text-slate-500 pt-6 border-t border-slate-200">
+                        <div>
+                            <p>Dicetak secara mandiri pada: <span id="print-timestamp" class="font-semibold"></span></p>
+                            <p>Sistem Informasi Kelulusan Digital v2.1</p>
+                        </div>
+                        <div class="text-center w-52 mt-6 sm:mt-0">
+                            <p>Mengetahui,</p>
+                            <p class="font-bold text-slate-800">Kepala SMP Swasta Teknologi</p>
+                            <div class="h-16 my-1 flex items-center justify-center">
+                                <div class="border border-emerald-200/50 rounded-xl px-2.5 py-1 bg-emerald-50/20 text-emerald-600 text-[10px] uppercase font-bold tracking-widest rotate-2 flex items-center gap-1.5 no-print">
+                                    <i class="fa-solid fa-certificate animate-pulse"></i>
+                                    <span>Tanda Tangan Digital</span>
+                                </div>
+                            </div>
+                            <p class="font-bold text-slate-800 underline">La Sarfia, S.Pd</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Print & Action Row -->
+                <div class="no-print flex flex-col sm:flex-row gap-4 items-center justify-center">
+                    <button onclick="window.print()" class="w-full sm:w-auto bg-white hover:bg-slate-100 text-slate-800 font-bold py-3 px-6 rounded-xl shadow transition duration-200 flex items-center justify-center gap-2 border border-slate-300">
+                        <i class="fa-solid fa-print"></i>
+                        <span>Cetak Surat Kelulusan</span>
+                    </button>
+                    <button onclick="goToPage('landing')" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-xl shadow transition duration-200 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Kembali ke Beranda</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ====== PAGE 3: RESULT SCREEN (FAILURE / NOT FOUND) ====== -->
+            <div id="section-failure" class="hidden space-y-8 transition-all duration-500">
+                <button onclick="goToPage('landing')" class="no-print inline-flex items-center gap-2 text-emerald-300 hover:text-emerald-100 font-semibold text-sm transition">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+                </button>
+
+                <div class="glass-panel rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden border border-rose-500/20">
+                    <div class="absolute inset-0 bg-rose-950/20 pointer-events-none"></div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-rose-500/10 text-rose-400 text-4xl mb-2 animate-pulse border border-rose-500/20">
+                            🚫
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wide">PENCARIAN TIDAK DITEMUKAN</h3>
+                        
+                        <div class="max-w-md mx-auto p-4 bg-rose-950/40 rounded-2xl border border-rose-500/30 text-rose-100 text-sm leading-relaxed">
+                            NISN tidak ditemukan. Silakan periksa kembali kombinasi NISN dan Tanggal Lahir Anda, atau hubungi Kepala Sekolah, wali kelas Anda untuk koordinasi lebih lanjut.
+                        </div>
+
+                        <!-- Hint Box -->
+                        <div class="text-xs text-leaf-300 max-w-sm mx-auto">
+                            <p class="font-semibold"><i class="fa-solid fa-circle-info mr-1 text-emerald-400"></i> Tips Pencarian:</p>
+                            <p class="mt-1">Gunakan angka penuh untuk NISN (biasanya 10 digit) dan pastikan tanggal lahir sudah sesuai dengan Akta Kelahiran resmi Anda.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="no-print text-center">
+                    <button onclick="goToPage('landing')" class="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition duration-200">
+                        <i class="fa-solid fa-rotate-left mr-2"></i>Coba Periksa Kembali
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ====== FOOTER HALAMAN ====== -->
+    <footer class="no-print text-center py-6 px-4 bg-leaf-950/60 backdrop-blur-sm border-t border-leaf-800/40 text-xs sm:text-sm text-leaf-200/80 space-y-2 mt-8">
+        <p class="font-semibold">© 2026 SMP SWASTA TEKNOLOGI. Hak Cipta Dilindungi.</p>
+        <p class="text-[11px] text-leaf-300/60 max-w-lg mx-auto leading-relaxed">
+            Jika mengalami kendala akses, silakan hubungi Kepala Sekolah, Wali Kelas atau Panitia Sekolah di jam operasional akademik sekolah.
+        </p>
+    </footer>
+
+    <!-- CLIENT SCRIPT LOGIC -->
+    <script>
+        // Official Target Launch Date: 02 Juni 2026 pukul 11:00 WITA
+        const TARGET_DATE_ISO = "2026-06-02T11:00:00+08:00";
+        const targetTime = new Date(TARGET_DATE_ISO).getTime();
+        let countdownInterval = null;
+
+        // Active database compiled from Google Sheet & local fallback
+        let activeDatabase = [];
+
+        // Fetch data from User's Google Spreadsheet (Published CSV link)
+        async function fetchSpreadsheetData() {
+            try {
+                // User provided published CSV export
+                const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSXQdPIBXeGrzrVyc2WsLH5rSzWaTZd7jrhiCPLE_yMHAfqEzyQgz0jYC_RKu62HQ/pub?gid=1789323003&single=true&output=csv";
+                
+                const response = await fetch(csvUrl);
+                if (!response.ok) throw new Error("Gagal mengambil data dari Google Sheets");
+                
+                const dataText = await response.text();
+                parseAndImportCSV(dataText);
+            } catch (err) {
+                console.warn("Menggunakan data fallback lokal karena kendala CORS/koneksi:", err.message);
+                loadFallbackDatabase();
+            }
+        }
+
+        // Basic robust CSV parser for Google Sheet
+        function parseAndImportCSV(csvText) {
+            const rows = csvText.split(/\r?\n/);
+            if (rows.length < 2) {
+                loadFallbackDatabase();
+                return;
+            }
+
+            const tempDB = [];
+            
+            // Loop starting from index 1 (skip headers)
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i];
+                if (!row.trim()) continue;
+
+                // Split by commas while preserving quoted elements containing commas
+                const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(c => c.replace(/^"|"$/g, '').trim());
+
+                if (cols.length >= 7) {
+                    const student = {
+                        nama: cols[0],       // Col A: Nama Siswa
+                        nis: cols[1],        // Col B: NIS
+                        gender: cols[2],     // Col C: Jenis Kelamin
+                        nisn: cols[3],       // Col D: NISN
+                        dob: normalizeDateInput(cols[4]), // Col E: Tanggal Lahir (Normalised)
+                        parent: cols[5],     // Col F: Nama Orang Tua
+                        status: cols[6] ? cols[6].toUpperCase() : 'LULUS' // Col G: Status Kelulusan
+                    };
+                    
+                    if (student.nisn && student.nama) {
+                        tempDB.push(student);
+                    }
+                }
+            }
+
+            if (tempDB.length > 0) {
+                activeDatabase = tempDB;
+                console.log("Database berhasil diselaraskan dari Google Sheets! Total data:", activeDatabase.length);
+            } else {
+                loadFallbackDatabase();
+            }
+        }
+
+        // Standardize different date formats (DD/MM/YYYY, YYYY-MM-DD, etc.) from spreadsheet to YYYY-MM-DD
+        function normalizeDateInput(rawDate) {
+            if (!rawDate) return "";
+            rawDate = rawDate.trim();
+            
+            // If already matching YYYY-MM-DD
+            if (/^\d{4}-\d{2}-\d{2}$/.test(rawDate)) {
+                return rawDate;
+            }
+            
+            // If DD/MM/YYYY, D/M/YYYY, DD-MM-YYYY or equivalent
+            const separator = rawDate.includes("/") ? "/" : (rawDate.includes("-") ? "-" : null);
+            if (separator) {
+                const parts = rawDate.split(separator);
+                if (parts.length === 3) {
+                    // Check if it's YYYY/MM/DD
+                    if (parts[0].length === 4) {
+                        return `${parts[0]}-${parts[1].padStart(2, '0')}-${parts[2].padStart(2, '0')}`;
+                    } else {
+                        // Standard Indonesian/European format: DD/MM/YYYY
+                        let day = parts[0];
+                        let month = parts[1];
+                        let year = parts[2];
+                        
+                        // Treat 2-digit years
+                        if (year.length === 2) {
+                            year = "20" + year;
+                        }
+                        
+                        return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+                    }
+                }
+            }
+            
+            // Native fallback parser
+            const parsed = new Date(rawDate);
+            if (!isNaN(parsed.getTime())) {
+                const y = parsed.getFullYear();
+                const m = String(parsed.getMonth() + 1).padStart(2, '0');
+                const d = String(parsed.getDate()).padStart(2, '0');
+                return `${y}-${m}-${d}`;
+            }
+            
+            return rawDate;
+        }
+
+        // Local Fallback Database in case of loading error
+        function loadFallbackDatabase() {
+            activeDatabase = [
+                {
+                    nisn: "0098765432",
+                    nama: "BUDI SANTOSO",
+                    nis: "252601",
+                    gender: "LAKI-LAKI",
+                    dob: "2011-05-12",
+                    parent: "JOKO SANTOSO",
+                    status: "LULUS"
+                },
+                {
+                    nisn: "0091234567",
+                    nama: "SITI AMINAH",
+                    nis: "252602",
+                    gender: "PEREMPUAN",
+                    dob: "2011-08-20",
+                    parent: "AHMAD DAHLAN",
+                    status: "LULUS"
+                },
+                {
+                    nisn: "0092345678",
+                    nama: "RIAN HIDAYAT",
+                    nis: "252603",
+                    gender: "LAKI-LAKI",
+                    dob: "2011-11-03",
+                    parent: "SUPRIADI",
+                    status: "LULUS"
+                }
+            ];
+        }
+
+        // Countdown Timer Engine
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetTime - now;
+
+            const cdDays = document.getElementById('cd-days');
+            const cdHours = document.getElementById('cd-hours');
+            const cdMins = document.getElementById('cd-mins');
+            const cdSecs = document.getElementById('cd-secs');
+            const cdCard = document.getElementById('countdown-card');
+
+            if (difference <= 0) {
+                if (cdDays) cdDays.textContent = "00";
+                if (cdHours) cdHours.textContent = "00";
+                if (cdMins) cdMins.textContent = "00";
+                if (cdSecs) cdSecs.textContent = "00";
+                
+                if (cdCard) {
+                    cdCard.innerHTML = `
+                        <div class="flex items-center justify-center gap-2 text-emerald-400 font-bold text-sm">
+                            <i class="fa-solid fa-circle-check animate-pulse"></i>
+                            <span>GERBANG PENGUMUMAN TELAH DIBUKA SECARA RESMI</span>
+                        </div>
+                        <p class="text-xs text-leaf-200 mt-2">Silakan gunakan fitur pemeriksaan di bawah untuk melihat status kelulusan Anda.</p>
+                    `;
+                }
+
+                if (countdownInterval) {
+                    clearInterval(countdownInterval);
+                    countdownInterval = null;
+                }
+                return true;
+            } else {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                if (cdDays) cdDays.textContent = String(days).padStart(2, '0');
+                if (cdHours) cdHours.textContent = String(hours).padStart(2, '0');
+                if (cdMins) cdMins.textContent = String(minutes).padStart(2, '0');
+                if (cdSecs) cdSecs.textContent = String(seconds).padStart(2, '0');
+                return false;
+            }
+        }
+
+        // Navigation state controller
+        function goToPage(pageId) {
+            document.getElementById('section-landing').classList.add('hidden');
+            document.getElementById('section-success').classList.add('hidden');
+            document.getElementById('section-failure').classList.add('hidden');
+
+            if (pageId === 'landing') {
+                document.getElementById('section-landing').classList.remove('hidden');
+            } else if (pageId === 'success') {
+                document.getElementById('section-success').classList.remove('hidden');
+                triggerConfetti();
+                setPrintTimestamp();
+            } else if (pageId === 'failure') {
+                document.getElementById('section-failure').classList.remove('hidden');
+            }
+        }
+
+        // Custom alert display logic
+        function showAlert(msg) {
+            const alertBox = document.getElementById('custom-alert');
+            const alertMsg = document.getElementById('custom-alert-msg');
+            alertMsg.textContent = msg;
+            alertBox.classList.remove('hidden');
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function hideAlert() {
+            document.getElementById('custom-alert').classList.add('hidden');
+        }
+
+        // Main searching query mechanism
+        function handleSearch(event) {
+            event.preventDefault();
+            hideAlert();
+
+            const inputNISN = document.getElementById('input-nisn').value.trim();
+            const inputDOB = document.getElementById('input-dob').value;
+
+            // 1. Validation - Empty Check
+            if (!inputNISN || !inputDOB) {
+                showAlert("Harap masukkan NISN Anda dan Tanggal Lahir Anda secara lengkap!");
+                return;
+            }
+
+            // 2. Validation - Time Announcement Check
+            const isStarted = (targetTime - new Date().getTime() <= 0);
+            if (!isStarted) {
+                showAlert("Mohon bersabar pengumuman belum di mulai.");
+                return;
+            }
+
+            // 3. Search database
+            const matchedStudent = activeDatabase.find(student => {
+                const cleanDBNisn = student.nisn.trim();
+                const cleanInputNisn = inputNISN.trim();
+                
+                const cleanDBDob = student.dob.trim();
+                const cleanInputDob = inputDOB.trim();
+
+                return cleanDBNisn === cleanInputNisn && cleanDBDob === cleanInputDob;
+            });
+
+            if (matchedStudent) {
+                if (matchedStudent.status.toUpperCase() === "LULUS") {
+                    // Populate results screen with verified data
+                    document.getElementById('res-nama').textContent = matchedStudent.nama;
+                    document.getElementById('res-nisn').textContent = matchedStudent.nisn;
+                    document.getElementById('res-nis').textContent = matchedStudent.nis;
+                    document.getElementById('res-dob').textContent = formatDateIndo(matchedStudent.dob);
+                    document.getElementById('res-gender').textContent = matchedStudent.gender;
+                    document.getElementById('res-parent').textContent = matchedStudent.parent;
+                    document.getElementById('res-status').textContent = matchedStudent.status;
+
+                    goToPage('success');
+                } else {
+                    goToPage('failure');
+                }
+            } else {
+                goToPage('failure');
+            }
+        }
+
+        // Format Date to elegant Indonesian style
+        function formatDateIndo(dateString) {
+            if (!dateString) return "-";
+            const months = [
+                "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+            ];
+            const date = new Date(dateString);
+            if (isNaN(date)) return dateString; // Fallback to raw string
+            
+            const day = date.getDate();
+            const monthIndex = date.getMonth();
+            const year = date.getFullYear();
+
+            return `${day} ${months[monthIndex]} ${year}`;
+        }
+
+        // Set Print Timestamp Info
+        function setPrintTimestamp() {
+            const now = new Date();
+            const dateStr = formatDateIndo(now.toISOString().split('T')[0]);
+            const timeStr = String(now.getHours()).padStart(2, '0') + ":" + String(now.getMinutes()).padStart(2, '0') + " WITA";
+            document.getElementById('print-timestamp').textContent = `${dateStr}, pukul ${timeStr}`;
+        }
+
+        // Confetti Fireworks Engine
+        function triggerConfetti() {
+            const duration = 4 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                const particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+        }
+
+        // Window Initialization Loader
+        window.onload = function () {
+            fetchSpreadsheetData();
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+    </script>
+</body>
+</html>
